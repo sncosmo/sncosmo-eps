@@ -10,9 +10,9 @@ rejected, or tabled for further discussion later.
 
 ## Accepted EPs
 
-| # |     Title                          | Date        | DOI   |
-|---|:-----------------------------------|-------------|-------|
-| 1 | [`Title`](url)                     | 2020-FEB-XX |[EP 1 DOI]()|
+| # |     Title                          | Date        |
+|---|:-----------------------------------|-------------|
+| 1 | [`Title`](url)                     | 2020-FEB-XX |
  
 ## Proposing a new EPs
  
@@ -47,41 +47,18 @@ final decision on acceptance, rejection, or defering action. One of the communit
 3. Leave a brief comment in the PR indicating the result.
 3. Merge the PR with the above changes.
 3. If the EP was accepted then continue with the remaining steps, otherwise stop now.
-3. Upload the EP to Zenodo to give it a DOI.  Go to https://zenodo.org/deposit/new, upload
-   the `.md` file, and set the fields to the following:
-   
-  | Zenodo field                  | Set to |
-  | ------------------------------| -------|
-  | Communities                   | The SNCosmo Project |
-  | Upload type                   | Publication |
-  | Publication type              | Technical note |
-  | Publication Date              | The date-last-revised of the EP (which should be the same as the accepted date for new EPs) |
-  | Title                         | SNCosmo Enhancement Proposals <number>: <title> (EP <number>) |
-  | Authors                       | The EP authors (directly from the EP text, but with ORCIDs if possible) |
-  | Description                   | The EP abstract (copy/paste the rendered HTML from GitHub) |
-  | License                       | CC-Attribution (default) |
-  | Related/alternate identifiers | Github link to the EP file *at the specific merge commit* as "is supplemented by this upload". If this is a revised version, this should be the URL of the commit where the EP was revised. |
-
-8. Get the source for the DOI badge from the newly-created Zenodo record page by
-   clicking on the DOI badge on the right side of the page and copying the
-   markdown source.
-9. On GitHub (or locally) edit ``README.md`` and add an entry for the new EP to the
-   "Accepted EPs" table.  Use the DOI link from the previous step. Add
-   corresponding Markdown link refs for both the DOI link and the new EP. Preview
+3. On GitHub (or locally) edit ``README.md`` and add an entry for the new EP to the
+   "Accepted EPs" table. Add
+   corresponding Markdown link refs for the new EP. Preview
    the update and test the links to make sure they are all correct. Then commit
    directly to master (or PR if you prefer).
-10. Send an email to the [SNcosmo mailing list](mailto:sncosmo@googlegroups.com)
-   announcing the acceptance In general this should just point to the accepted
-   EP rather than providing additional decision rationale.
  
  
 ## Updating EPs
  
-In the cases where an updated EP requires updating (e.g. references to a  new EP that 
+In the cases where an updated EP requires updating (e.g. references to a new EP that 
 supercedes it, clarifying information that emerges after the EP is accepted, etc.), changes 
-can be made directly via PR, but the "date-last-revised" should be updated in the EP. Additionally, 
-the Zenodo entry will need to be updated with a new version of the EP (*not* a completely 
-new Zenodo entry), by using the "New version" button and then filling out the forms as described above.
+can be made directly via PR, but the "date-last-revised" should be updated in the EP.
  
  
 This procedure was adapted from the [Astropy Proposals for Enhancement](https://github.com/astropy/astropy-APEs)
