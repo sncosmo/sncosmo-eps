@@ -66,7 +66,7 @@ dr3.get_data_for_id(demo_id, format_table=False)
 
 ```
 
-Multiple data sets can also be combined into a single data access instance while maintaning the same data access UI (see more [here](https://sn-data.readthedocs.io/en/latest/getting_started/combining_datasets.html)):
+Multiple data sets can also be combined into a single data access instance while maintaning the same data access UI demonstrated above (see more [here](https://sn-data.readthedocs.io/en/latest/getting_started/combining_datasets.html)):
 
 ```python
  from sndata import CombinedDataset, csp, des
