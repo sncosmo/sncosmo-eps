@@ -7,9 +7,9 @@ date-created: 2020 May 19
 
 date-last-revised:  2020 May 19
 
-date-accepted: 
+date-accepted: 2020 Jun 04
 
-status: Discussion 
+status: Accepted 
 
 
 
