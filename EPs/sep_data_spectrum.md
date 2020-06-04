@@ -145,13 +145,13 @@ converted to magnitudes.
 ### Fitting models
 
 With this EP, models can be fit to any combination of photometry and spectra. We propose
-modifying `fit_lc` so that the `data` argument can be either photometry (as before), a
-spectrum, or a list containing some arbitrary combination of spectra and photometry.
-Internally, we will modify the `generate_chisq` function used by `fit_lc` to compute the
-chi-square individually for all of the different photometry and spectra given a model
-and then combine the results. This approach means that the API will remain unchanged,
-but there is a new option to include spectra as part of the fit.
-
+modifying `fit_lc` and adding an optional `spectra` keyword that takes a `Spectrum`
+object or a list of `Spectrum` objects. Any combination of spectra and photometry is
+allowed, including fitting only spectra or fitting a mix of photometry and spectra
+simultaneously. Internally, we will modify the `generate_chisq` function used by
+`fit_lc` to compute the chi-square individually for all of the different photometry and
+spectra and then combine the results. This approach means that the API will remain
+unchanged, but there is a new option to include spectra as part of the fit.
 
 ## Backward compatibility
 
