@@ -82,8 +82,8 @@ A spectrum is initialized with a list of wavelengths, fluxes and optionally
 uncertainties. The `Spectrum` initializer has the following signature:
 
 ```python
-    def __init__(self, wave=None, flux=None, fluxerr=None, fluxcov=None, bin_edges=None,
-                 wave_unit=u.AA, unit=(u.erg / u.s / u.cm**2 / u.AA), time=None):
+def __init__(self, wave=None, flux=None, fluxerr=None, fluxcov=None, bin_edges=None,
+             wave_unit=u.AA, unit=(u.erg / u.s / u.cm**2 / u.AA), time=None):
 ```
 
 For the most common use case (a list of wavelengths, fluxes and uncertainties), all of
@@ -121,7 +121,7 @@ internally.
 Synthetic photometry can be calculated on the spectrum using the `bandflux` method:
 
 ```python
-    def bandflux(self, band, zp=None, zpsys=None):
+def bandflux(self, band, zp=None, zpsys=None):
 ```
 
 where `band` is an `sncosmo.Bandpass` object, the name of a bandpass in the registry, or
@@ -135,7 +135,7 @@ class).
 Magnitudes can be computed with `bandmag`:
 
 ```python
-    def bandmag(self, band, magsys):
+def bandmag(self, band, magsys):
 ```
 
 This is similar to `bandflux` except that magsys is required and the final result is
@@ -148,7 +148,16 @@ With this EP, models can be fit to any combination of photometry and spectra. We
 modifying `fit_lc` and adding an optional `spectra` keyword that takes a `Spectrum`
 object or a list of `Spectrum` objects. Any combination of spectra and photometry is
 allowed, including fitting only spectra or fitting a mix of photometry and spectra
-simultaneously. Internally, we will modify the `generate_chisq` function used by
+simultaneously. Here are some examples of valid calls to `fit_lc`:
+
+```python
+fit_lc(photometry, model)
+fit_lc(photometry, model, spectra=[spec1, spec2])
+fit_lc(model=model, spectra=[spec1, spec2])
+fit_lc(model=model, spectra=spec)
+```
+
+Internally, we will modify the `generate_chisq` function used by
 `fit_lc` to compute the chi-square individually for all of the different photometry and
 spectra and then combine the results. This approach means that the API will remain
 unchanged, but there is a new option to include spectra as part of the fit.
