@@ -91,7 +91,7 @@ these attributes can be passed directly into the function. This is compatible wi
 old `Spectrum` class which only supported arguments of `wave` and `flux`.
 
 Internally, the `Spectrum` class stores the edges of each bin rather than the centers of
-each bin. We use the `_estimate_bin_edges` function to recover the bin edges perfectly
+each bin. We use the `_recover_bin_edges` function to recover the bin edges perfectly
 for linear binning, and with a fractional error of (dλ/λ)^4 for higher order (e.g. log)
 binning. Optionally, `bin_edges` can be specified directly. Exactly one of `wave` and
 `bin_edges` must be specified. `flux` must also be specified and have the same length as
