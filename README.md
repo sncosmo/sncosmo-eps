@@ -12,7 +12,7 @@ rejected, or tabled for further discussion later.
 
 | #    | Title                                                        | Date        |
 | ---- | :----------------------------------------------------------- | ----------- |
-| 1    | [Add \`sndata\` as affiliate package](https://github.com/sncosmo/sncosmo-eps/pull/4) | 2020-Jun-04 |
+| 1    | [Add \`sndata\` as affiliate package](EPs/sep_add_sndata_affil.md) | 2020-Jun-04 |
 
 ## Proposing a new EPs
 
