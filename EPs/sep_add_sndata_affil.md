@@ -118,4 +118,4 @@ The Open Supernova Cataloge (OSC) provides public access to SN data from a varie
 
 ## Decision rationale
 
-<!-- To be filled in when the proposal is accepted or rejected -->
+The SNData package fills the need that sndatasets was originally trying to address. Bringing it under the sncosmo organization will enable discovery and possibly make it easier for more people to contribute.  There were no objections raised.
