@@ -5,7 +5,7 @@ author: Kyle Boone <!-- your name -->
 
 date-created: 2020 June 9 <!-- replace with the date you submit the APE -->
 
-date-last-revised: 2020 June 9 <!-- keep this up to date anytime something changes -->
+date-last-revised: 2020 August 11 <!-- keep this up to date anytime something changes -->
 
 date-accepted: <!-- replace with accepted date -->
 
@@ -17,7 +17,7 @@ status: Discussion  <!-- one of: Discussion, Accepted, Rejected -->
 This proposal adds tools to `sncosmo` that can be used to generate simulations of
 transient surveys. This simulation can include a wide range of different transient
 models, each having its own redshift, spatial and parameter distributions. Ultimately,
-the simulation produces a catalog of all of the transients in the survey footprint, and
+the simulation produces a catalog of all of the transients in the survey field, and
 each entry in the catalog is an `sncosmo.Model` object with appropriately simulated
 parameters. We also provide tools that can be used to generate light curves from these
 catalogs given the specific observing cadence of a survey.
@@ -28,22 +28,24 @@ catalogs given the specific observing cadence of a survey.
 method of using those transient models to simulate surveys. This is one of the main
 features of `SNANA` that would be very useful to have in python. The goal of this
 proposal is to create a modular framework that can be used to simulate transient
-surveys. This framework consists of several different parts.
+surveys. The framework should not be tied to specific surveys, but should provide tools
+to make it easy to interface with different surveys' tools. This framework consists of
+several different parts.
 
-First, a footprint is defined that establishes the region of the sky and time range that
-should be simulated. A footprint does not take into account observing efficiency or
+First, a field is defined that establishes the region of the sky and time range that
+should be simulated. A field does not take into account observing efficiency or
 cadence, it simply establishes the region of the sky that should be simulated. The
-footprint should be large enough to include all transients that could possibly be
+field should be large enough to include all transients that could possibly be
 observed by the survey, but small enough to avoid simulating many transients that won't
-be observed. A simulation can be broken into many small non-overlapping footprints to
-parallize computations.
+be observed. A simulation can be broken into many small non-overlapping fields to
+parallelize computations.
 
 The next piece of the simulation is to define the different transients that will be
 simulated. `sncosmo.Model` objects can be simulated with arbitrary distributions of
 redshifts, positions on the sky, or other parameters. Parameters can have distributions
 that are redshift-dependent (e.g. the distribution of SALT2 x1 varying with redshift).
 
-Given a set of transient distributions and a footprint, we can simulate a catalog of
+Given a set of transient distributions and a field, we can simulate a catalog of
 transients. This catalog is effectively a list of `~sncosmo.Model` objects whose
 parameters have been simulated according to the specified distributions. This catalog
 can either be directly representative (i.e. a list of all of the objects that can will
@@ -51,7 +53,7 @@ be observed) or weighted (e.g. simulating equal numbers of each object type, equ
 numbers in each redshift bin). Individual objects can also be simulated. A catalog is
 sufficient on its own for many use cases. For example, it can be used directly to
 calculate the number of transients above a specific brightness threshold that will be
-in the footprint of a survey.
+in the field of a survey.
 
 The catalog can also be turned into a set of light curves given an observing cadence
 for the survey. The observing cadence will be survey specific, and generating it is
@@ -96,7 +98,7 @@ are made and should probably be deprecated.
 ## Alternatives
 
 TODO
-- SNANA (not python, hard to use)
+- SNANA (not python)
 - Rahul's simulation package (tied to LSST, and not as flexible as I would like)
 
 ## Decision rationale
